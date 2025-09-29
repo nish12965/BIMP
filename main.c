@@ -3,30 +3,63 @@ Program Name : BIMP (Bitmap Image Manipulaton Program)
 Project type : Group Project
 Author(s) : Anand, Anjali, Arun, Aradhna, Alok,Bittu,Divyanshi,Gaurav,
             Nishant,Santosh,Prashant,Vineet
-Date : 28/05/2025
+Date : 28/09/2025
+Last Modification Date : 29/09/2025
 Version : 1.0.0
 
 */
 
 #include <stdio.h>
-//#include "tools.h"
+#include "tools.h"
 #include <stdlib.h>
 
-int main(){
-    int choice;
-    printf(" === Bitmap Image Manipulation Progaram (BIMP) === \n\n");
-    printf(" <= Main Menu => \n");
-    printf("1.File \n2.Tools \n3.About \n4.Exit \n");
-    printf("Enter Your choice : ");
-    scanf("%d",&choice);
 
-    switch(choice){
-        case 1: // Accessing file menu
-                //break;
-        case 2: //Accessing tools menu
-                //break;
-        case 3: {
-            FILE *file = fopen("about.md","r");
+void tools(){
+    int tool_choice;
+    do {
+        printf("==> Entered Tool menu !!\n\n");
+        printf("1.Grayscale \n");
+        printf("2.Invert color\n");
+        printf("3.Gamma_color_change\n");
+        printf("4.Sepia\n");
+        printf("5.Adjust brightness\n");
+        printf("6.Adjust contrast\n");
+        printf("7.Color chaneel\n");
+        printf("0. Back to main menu ");
+
+        printf("Enter Your choice : ");
+        scanf("%d",&tool_choice);
+
+        switch (tool_choice){
+            case 1: grayscale();
+                    break;
+            case 2: inversion();
+                    break;
+            case 3: gamma_correction();
+                    break;
+            case 4: sepia();
+                    break;
+            case 5: brightness();
+                    break;
+            case 6: contrast();
+                    break;
+            case 7: color_channel();
+                    break;
+            case 0: 
+                printf("\nReturning to Main menu ..... \n");
+                return;
+        
+            default:
+                printf("Error !! Enter Valid Choice !!");
+                break;
+        }
+    } while ( tool_choice != 0);
+
+
+}
+
+void about(){
+    FILE *file = fopen("about.md","r");
             if (file == NULL){
                 printf("Error: File not opening\n");
             }
@@ -37,11 +70,35 @@ int main(){
                 }
             }
             fclose(file);
-        }
-        break;
-        case 4: printf("Program Terminated Successfully. Thankyou\n");
-        break;
-        default : printf("Error !! Please enter valid choice !!\n");
-    }
-    return 0;
 }
+
+int main(){
+    int choice;
+    do {
+      
+        printf(" === Bitmap Image Manipulation Progaram (BIMP) === \n\n");
+        printf(" <= Main Menu => \n");
+        printf("1.File \n2.Tools \n3.About \n4.Exit \n");
+        printf("Enter Your choice : ");
+        scanf("%d",&choice);
+
+        switch(choice){
+            case 1: // Accessing file menu
+            break;
+            case 2: tools();
+            break;
+
+            case 3: about();
+            break;
+        
+            case 4: printf("Program Terminated Successfully. Thankyou\n");
+            break;
+            default : printf("Error !! Please enter valid choice !!\n");
+            break;
+        } 
+    }
+    while ( choice != 4 );
+     
+
+    return 0;
+} 

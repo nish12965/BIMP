@@ -4,10 +4,11 @@
 #define TOOLS_H // definign TOOLS_H header
 
 //Prototype of color inverson function
-void inversion();
+void grayscale(); 
+
 
 // Prototype of grayscale function
-void grayscale();
+void inversion();
 
 //Prototype of brightness function
 void brightness();
