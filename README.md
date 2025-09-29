@@ -17,24 +17,24 @@ This software is in early development and will be released soon.
 ## Installation/ Usage 
 This section will be written after completing the program.
 ## Contributors
-- Anand Maurya
+- Anand Kumar Maurya
 - Anjali Kumari
 - Arun Singh
 - Vineet Sikarwar
-- Aradhna Pattidar
+- Aradhana Patidar
 - Alok Kumar
 - Bittu kumar
-- Divyanshi
+- Divyanshi Lilhore
 - Kumar Gaurav
 - Nishant Kuamar
-- V Santosh
-- V prashant
+- Vishlavath Santosh Kumar
+- Vadithya Prashanth
 
 ## Licence 
 This project is licenced under the **GNU general Public Licence v3 (GPL-3.0)**
 See more details here, [GPL v3 licence](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
 ## Donation
-This project is maintained by college students. If you find BIMP useful and would like to ensure its continued development and maintenance, please consider sponsoring the project. Thank you for your support!"
+This project is maintained by college students. If you find BIMP useful and would like to ensure its continued development and maintenance, please consider sponsoring the project. Thank you for your support.
 - UPI ID 1 : **12pcm.anandmaurya@okhdfcbank**
 - UPI ID 2 : **singharun9754-1@oksbi**
