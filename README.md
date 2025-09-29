@@ -34,7 +34,7 @@ This section will be written after completing the program.
 This project is licenced under the **GNU general Public Licence v3 (GPL-3.0)**
 See more details here, [GPL v3 licence](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
-##Donation
-This project is maintained by college students. If you find BIMP useful and would like to ensure its continued development and maintenance, please consider sponsoring the project. Thank you for your support!"
-UPI ID 1 : **12pcm.anandmaurya@okhdfcbank**
-UPI ID 2 : **singharun9754-1@oksbi**
+## Donation
+- This project is maintained by college students. If you find BIMP useful and would like to ensure its continued development and maintenance, please consider sponsoring the project. Thank you for your support!"
+- UPI ID 1 : **12pcm.anandmaurya@okhdfcbank**
+- UPI ID 2 : **singharun9754-1@oksbi**
