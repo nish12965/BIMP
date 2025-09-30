@@ -3,13 +3,14 @@ BIMP (Bitmap Image Manipulation Program) is a free and opensource cli program fo
 ## Current Status 
 This software is in early development and will be released soon.
 ## Current Features
-- Color Inversion
-- Gray Scaling
-- Gamma Correction
-- Adjusting Brightness
-- Adjusting Contrast
-- Sepia
-- Color chaneel filter
+- Color Inversion - Anjali
+- Gray Scaling - Aradhana
+- Gamma Correction - Divyanshi 
+- Adjusting Brightness - Alok
+- Adjusting Contrast - Bittu
+- Sepia - Prashant
+- Color chaneel filter - Santosh
+- Saturation - Vineet
 ## Optional Feature
 - Rotate 
 - Resize
