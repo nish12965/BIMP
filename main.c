@@ -12,9 +12,19 @@ Version : 1.0.0
 #include <stdio.h>
 #include "tools.h"
 #include <stdlib.h>
+#include <string.h>
+#include <stdint.h>
 
+#define MAX_PATH_LENGTH 256
 
+void file(){
+    printf("Enter path of file : ");
+    // File will be taken here as input globally so accessed from everywhere
+
+}
 void tools(){
+
+    // Validate image loaded or not also first
     int tool_choice;
     do {
         printf("==> Entered Tool menu !!\n\n");
@@ -25,7 +35,7 @@ void tools(){
         printf("5.Adjust brightness\n");
         printf("6.Adjust contrast\n");
         printf("7.Color chaneel\n");
-        printf("0. Back to main menu ");
+        printf("0. Back to main menu \n");
 
         printf("Enter Your choice : ");
         scanf("%d",&tool_choice);
@@ -50,7 +60,7 @@ void tools(){
                 return;
         
             default:
-                printf("Error !! Enter Valid Choice !!");
+                printf("Error !! Enter Valid Choice !!\n");
                 break;
         }
     } while ( tool_choice != 0);
@@ -83,12 +93,13 @@ int main(){
         scanf("%d",&choice);
 
         switch(choice){
-            case 1: // Accessing file menu
+            case 1: load_file(); // Have to define it
             break;
             case 2: tools();
             break;
 
-            case 3: about();
+            case 3: printf("\n");
+            about();
             break;
         
             case 4: printf("Program Terminated Successfully. Thankyou\n");

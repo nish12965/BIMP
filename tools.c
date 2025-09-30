@@ -3,6 +3,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdint.h>
+
+
+// Global Definitons
+
+BMPFILEHEADER g_f_header;
+BMPINFOHEADER g_i_header;
+int g_width; 
+int g_height;
+uint32_t g_image_size;
+unsigned char *g_pixel_data;
 
 
 //definiton of functionS :-
@@ -37,6 +48,15 @@ void color_channel(){
 }
 
 
+void load_file(){
+   
+    }
+
+//Reading header of file 14 byte fileheader and 50 byte info header
+
+
+
+ 
 
 
 
