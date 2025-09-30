@@ -27,7 +27,7 @@ void tools(){
     // Validate image loaded or not also first
     int tool_choice;
     do {
-        printf("==> Entered Tool menu !!\n\n");
+        printf("\n==> Entered Tool menu !!\n\n");
         printf("1. Grayscale \n");
         printf("2. Invert color\n");
         printf("3. Gamma_color_change\n");
@@ -89,7 +89,7 @@ int main(){
     int choice;
     do {
       
-        printf(" === Bitmap Image Manipulation Progaram (BIMP) === \n\n");
+        printf("\n === Bitmap Image Manipulation Progaram (BIMP) === \n\n");
         printf(" <= Main Menu => \n");
         printf("1.Opne_File \n2.Tools \n3.About \n4.Exit \n");
         printf("Enter Your choice : ");

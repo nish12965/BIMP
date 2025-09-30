@@ -19,9 +19,10 @@ unsigned char *g_pixel_data;
 //definiton of functionS :-
 
 void grayscale (){
-    // Block of code to perform graysclale effect on image
-   
+   // Block of code to perform grayscale effect on image 
 }
+
+
 
 void inversion (){
     // Block of code to perfrom inversion effect on image
@@ -105,10 +106,11 @@ void load_file(){
     }
 
     fclose(fp);
-    printf("File has been loaded .\n");
+    printf("File has been loaded ✔️\n");
     printf("Pixels  : %d * %d\n",g_width,g_height);
-
+    printf("👉 Visit tools section for operatin ");
 }
+
 
 void save_file(const char *output_path) {
     if (g_pixel_data == NULL) {
