@@ -64,6 +64,6 @@ void color_channel();
 void load_file();
 
 // File Saving
-void save_file();
+void save_file(const char *output_path);
 
 #endif // End of header guard

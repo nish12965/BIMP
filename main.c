@@ -1,11 +1,10 @@
 /* 
 Program Name : BIMP (Bitmap Image Manipulaton Program)
-Project type : Group Project (Project 09)
-Team : 10
+Project type : Group Project
 Author(s) : Anand, Anjali, Arun, Aradhna, Alok,Bittu,Divyanshi,Gaurav,
             Nishant,Santosh,Prashant,Vineet
 Date : 28/09/2025
-Last Modification Date : 30/09/2025
+Last Modification Date : 29/09/2025
 Version : 1.0.0
 
 */
@@ -29,13 +28,14 @@ void tools(){
     int tool_choice;
     do {
         printf("==> Entered Tool menu !!\n\n");
-        printf("1.Grayscale \n");
-        printf("2.Invert color\n");
-        printf("3.Gamma_color_change\n");
-        printf("4.Sepia\n");
-        printf("5.Adjust brightness\n");
-        printf("6.Adjust contrast\n");
-        printf("7.Color chaneel\n");
+        printf("1. Grayscale \n");
+        printf("2. Invert color\n");
+        printf("3. Gamma_color_change\n");
+        printf("4. Sepia\n");
+        printf("5. Adjust brightness\n");
+        printf("6. Adjust contrast\n");
+        printf("7. Color chaneel\n");
+        printf("8. Save File\n");
         printf("0. Back to main menu \n");
 
         printf("Enter Your choice : ");
@@ -55,6 +55,8 @@ void tools(){
             case 6: contrast();
                     break;
             case 7: color_channel();
+                    break;
+            case 8: save_file("output.bmp");
                     break;
             case 0: 
                 printf("\nReturning to Main menu ..... \n");
@@ -89,7 +91,7 @@ int main(){
       
         printf(" === Bitmap Image Manipulation Progaram (BIMP) === \n\n");
         printf(" <= Main Menu => \n");
-        printf("1.File \n2.Tools \n3.About \n4.Exit \n");
+        printf("1.Opne_File \n2.Tools \n3.About \n4.Exit \n");
         printf("Enter Your choice : ");
         scanf("%d",&choice);
 
