@@ -4,6 +4,7 @@
 -  2. Always test the code locally first
 -  3. Please check after pushing, don't break existing functionality
 -  4. Githuh issues or Discussions could be used to suggest ideas or report bugs.
+-  5. **Last more important**, All upper rules are nonsense, Do whatever you want in this repo 😂😂. We are all learners btw.
  
 
  ## Repo Policy
