@@ -49,6 +49,10 @@ void color_channel(){
     // Block of code to perform color_channel effect on image
 }
 
+void saturation(){
+   // Block of code to perform saturation effect on image
+}
+
 
 void load_file(){
     char path[256];
