@@ -35,6 +35,7 @@ void tools(){
         printf("5. Adjust brightness\n");
         printf("6. Adjust contrast\n");
         printf("7. Color chaneel\n");
+        printf("8. Saturation\n");     
         printf("8. Save File\n");
         printf("0. Back to main menu \n");
 
@@ -56,7 +57,9 @@ void tools(){
                     break;
             case 7: color_channel();
                     break;
-            case 8: save_file("output.bmp");
+            case 8: saturation();
+                    break;
+            case 9: save_file("output.bmp");
                     break;
             case 0: 
                 printf("\nReturning to Main menu ..... \n");
