@@ -60,6 +60,9 @@ void sepia();
 //Prototype of color channel filter function
 void color_channel();
 
+//Prototype of saturation function
+void saturation();
+
 // File loading
 void load_file();
 
