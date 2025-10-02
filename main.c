@@ -1,3 +1,6 @@
+
+
+
 /* 
 Program Name : BIMP (Bitmap Image Manipulation Program)
 Project type : Group Project

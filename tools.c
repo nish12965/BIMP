@@ -20,6 +20,7 @@ unsigned char *g_pixel_data;
 
 void grayscale (){
    // Block of code to perform grayscale effect on image 
+   
 }
 
 
