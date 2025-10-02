@@ -23,9 +23,33 @@ void grayscale (){
 }
 
 
-
 void inversion (){
-    // Block of code to perfrom inversion effect on image
+
+    // Block of code to perfrom inversion effect on imag
+    if (g_pixel_data == NULL) {
+        printf("Error: No image data loaded!\n");
+        return;
+    }
+
+    int unpadded_row_size = g_width * 3;
+    int padded_row_size = (unpadded_row_size + 3) & ~3;
+
+    for (int y = 0; y < g_height; y++) {
+        unsigned char *row = g_pixel_data + (y * padded_row_size);
+
+        for (int x = 0; x < g_width; x++) {
+            unsigned char *pixel = row + (x * 3);
+
+            // BMP stores pixels as BGR
+            pixel[0] = 255 - pixel[0]; // Blue
+            pixel[1] = 255 - pixel[1]; // Green
+            pixel[2] = 255 - pixel[2]; // Red
+        }
+    }
+
+    printf("✔️ Color inversion applied.\n");
+
+
 }
 
 void brightness(){
