@@ -82,6 +82,7 @@ void brightness(){
         if (temp < 0) temp = 0;
         g_pixel_data[i] = (unsigned char)temp;
     }
+   printf("Brightness Adjusted successfully.\n");
 }
 
 void gamma_correction(){
