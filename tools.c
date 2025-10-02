@@ -29,7 +29,15 @@ void inversion (){
 }
 
 void brightness(){
-    // Block of code to perform brightness effect on image
+    int value ;
+    printf("Level of brightness :"); // adjust this value
+    scanf("%d",&value);
+    for (int i = 0; i < g_image_size; i++) {
+        int temp = g_pixel_data[i] + value;
+        if (temp > 255) temp = 255;
+        if (temp < 0) temp = 0;
+        g_pixel_data[i] = (unsigned char)temp;
+    }
 }
 
 void gamma_correction(){
