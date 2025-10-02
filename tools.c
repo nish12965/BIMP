@@ -45,7 +45,7 @@ void inversion (){
         }
     }
 
-    printf("✔️ Color inversion applied.\n");
+    printf("Color inversion applied.\n");
 
 
 }
