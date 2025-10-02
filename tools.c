@@ -24,8 +24,6 @@ void grayscale (){
 
 
 void inversion (){
-
-    // Block of code to perfrom inversion effect on imag
     if (g_pixel_data == NULL) {
         printf("Error: No image data loaded!\n");
         return;
