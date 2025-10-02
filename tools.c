@@ -19,7 +19,29 @@ unsigned char *g_pixel_data;
 //definiton of functionS :-
 
 void grayscale (){
-   // Block of code to perform grayscale effect on image 
+   if (g_pixel_data == NULL) {
+        printf("❌ Error: No image loaded.\n");
+        return;
+    }
+
+    // BMP rows are padded to multiples of 4 bytes
+    int row_padded = (g_width * 3 + 3) & ~3;
+
+    for (int y = 0; y < g_height; y++) {
+        for (int x = 0; x < g_width; x++) {
+            // Access the pixel (3 bytes: B, G, R)
+            unsigned char *pixel = g_pixel_data + y * row_padded + x * 3;
+
+            unsigned char gray = (pixel[0] + pixel[1] + pixel[2]) / 3;
+
+            // Apply grayscale to all channels
+            pixel[0] = gray; // Blue
+            pixel[1] = gray; // Green
+            pixel[2] = gray; // Red
+        }
+    }
+
+    printf("✔️ Grayscale effect applied successfully.\n");
 }
 
 
