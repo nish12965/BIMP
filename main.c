@@ -36,7 +36,7 @@ void tools(){
         printf("6. Adjust contrast\n");
         printf("7. Color chaneel\n");
         printf("8. Saturation\n");     
-        printf("8. Save File\n");
+        printf("9. Save File\n");
         printf("0. Back to main menu \n");
 
         printf("Enter Your choice : ");
@@ -90,24 +90,23 @@ void about(){
 
 int main(){
     int choice;
+    printf("\n === Bitmap Image Manipulation Progaram (BIMP) === \n\n");
     do {
       
-        printf("\n === Bitmap Image Manipulation Progaram (BIMP) === \n\n");
+        
         printf(" <= Main Menu => \n");
         printf("1.Opne_File \n2.Tools \n3.About \n4.Exit \n");
         printf("Enter Your choice : ");
         scanf("%d",&choice);
 
         switch(choice){
-            case 1: load_file(); // Have to define it
+            case 1: load_file(); 
             break;
             case 2: tools();
             break;
-
             case 3: printf("\n");
             about();
             break;
-        
             case 4: printf("Program Terminated Successfully. Thankyou\n");
             break;
             default : printf("Error !! Please enter valid choice !!\n");
