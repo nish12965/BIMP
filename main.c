@@ -3,7 +3,6 @@ Program Name : BIMP (Bitmap Image Manipulation Program)
 Project type : Group Project
 Author(s) : Anand, Anjali, Arun, Aradhna, Alok, Bittu, Divyanshi, Gaurav,
             Nishant, Santosh, Prashant, Vineet
-Date : 28/09/2025
 Last Modification Date : 03/10/2025
 Version : 1.0.1
 

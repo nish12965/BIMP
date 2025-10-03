@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
-
 // Global Definitons
 BMPFILEHEADER g_f_header;
 BMPINFOHEADER g_i_header;
