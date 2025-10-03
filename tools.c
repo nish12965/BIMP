@@ -1,13 +1,10 @@
-
 #include "tools.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
 
-
 // Global Definitons
-
 BMPFILEHEADER g_f_header;
 BMPINFOHEADER g_i_header;
 int g_width; 
@@ -15,15 +12,11 @@ int g_height;
 uint32_t g_image_size;
 unsigned char *g_pixel_data;
 
-
 //definiton of functionS :-
 
 void grayscale (){
    // Block of code to perform grayscale effect on image 
-   
 }
-
-
 
 void inversion (){
     // Block of code to perfrom inversion effect on image
@@ -53,7 +46,6 @@ void sepia(){
     // Block of code to perform sepia effect on image
 }
 
-
 void color_channel(){
     // Block of code to perform color_channel effect on image
 }
@@ -62,17 +54,16 @@ void saturation(){
    // Block of code to perform saturation effect on image
 }
 
-
-void load_file(){
-    char path[256];
-    printf("Enter path of bmp file : ");
-    if (scanf ("%255s",path) != 1){
-        return;
-    }
-
-    FILE *fp = fopen(path,"rb");
+/* 
+load_file()
+-----------
+Modified to accept a file path directly instead of prompting for input.
+This ensures the user is only asked for the filename once in main.c.
+*/
+void load_file(const char *fullpath){
+    FILE *fp = fopen(fullpath,"rb");
     if (fp == NULL){
-        printf("Error !! File not loaded");
+        printf("Error !! File not loaded: %s\n", fullpath);
         return;
     }
 
@@ -84,7 +75,7 @@ void load_file(){
     }  
 
     if (g_f_header.bfType != 0X4d42 || g_i_header.biBitCount != 24 || g_i_header.biCompression != 0){
-        printf("Only 24 bit uncmpressed BMP file is supported");
+        printf("Only 24 bit uncompressed BMP file is supported");
         fclose(fp);
         return;
     }
@@ -108,7 +99,7 @@ void load_file(){
         return;
     }
 
-    //
+    // Reading pixel data
     fseek(fp,g_f_header.bfOffBits,SEEK_SET);
     if(fread(g_pixel_data,1,g_image_size, fp) != g_image_size) {
         printf("Error in reading pixel data !!\n");
@@ -121,10 +112,15 @@ void load_file(){
     fclose(fp);
     printf("File has been loaded ✔️\n");
     printf("Pixels  : %d * %d\n",g_width,g_height);
-    printf("👉 Visit tools section for operatin ");
+    printf("👉 Visit tools section for operations \n");
 }
 
-
+/* 
+save_file()
+-----------
+This function saves the modified BMP image to the file path
+passed from main.c (which builds full path inside "output/").
+*/
 void save_file(const char *output_path) {
     if (g_pixel_data == NULL) {
         printf("Error: No image data to save.\n");
@@ -136,26 +132,17 @@ void save_file(const char *output_path) {
         perror("Error creating output file");
         return;
     }
-    // writing file header
+
+    // Writing file header
     fwrite(&g_f_header, sizeof(BMPFILEHEADER), 1, fp);
     
-    //Writing info header
+    // Writing info header
     fwrite(&g_i_header, sizeof(BMPINFOHEADER), 1, fp);
     
-    // writing pixel data
+    // Writing pixel data
     fseek(fp, g_f_header.bfOffBits, SEEK_SET);
     fwrite(g_pixel_data, 1, g_image_size, fp);
 
     fclose(fp);
     printf("Image saved : %s\n", output_path);
 }
-
-
-
-
-
-
- 
-
-
-
