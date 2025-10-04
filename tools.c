@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
-
+#include <math.h>
 
 // Global Definitons
 
@@ -86,8 +86,33 @@ void brightness(){
 }
 
 void gamma_correction(){
-    // Block of code to perform gamma_correction effect on image
+        if (g_pixel_data == NULL) {
+        printf("❌ Error: No image loaded.\n");
+        return;
+    }
+
+    float gamma;
+    printf("Enter gamma value (> 0): ");
+    if (scanf("%f", &gamma) != 1 || gamma <= 0.0f) {
+        printf("❌ Invalid gamma value.\n");
+        return;
+    }
+
+    int row_padded = (g_width * 3 + 3) & ~3;
+
+    for (int y = 0; y < g_height; y++) {
+        for (int x = 0; x < g_width; x++) {
+            unsigned char *pixel = g_pixel_data + y * row_padded + x * 3;
+
+            pixel[0] = (unsigned char)(powf(pixel[0] / 255.0f, gamma) * 255.0f); // Blue
+            pixel[1] = (unsigned char)(powf(pixel[1] / 255.0f, gamma) * 255.0f); // Green
+            pixel[2] = (unsigned char)(powf(pixel[2] / 255.0f, gamma) * 255.0f); // Red
+        }
+    }
+
+    printf("✔️ Gamma correction applied with gamma = %.2f\n", gamma);
 }
+
 
 void contrast(){
     // Block of code to perform contrast effect on image
