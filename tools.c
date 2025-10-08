@@ -120,6 +120,45 @@ void contrast(){
 
 void sepia(){
     // Block of code to perform sepia effect on image
+
+   if (g_pixel_data == NULL) {
+        printf("Error: No image loaded!\n");
+        return;
+    }
+
+    // Calculate padded row size
+    int unpadded_row_size = g_width * 3; // Each pixel in BMP is stored as 3 bytes (B, G, R)
+
+    // BMP rows are padded to multiples of 4 bytes for alignment
+    int padded_row_size = (unpadded_row_size + 3) & ~3; 
+
+    // Loop through each row of the image
+    for (int y = 0; y < g_height; y++) {
+        unsigned char *row = g_pixel_data + y * padded_row_size; // Pointer to the start of the current row
+        for (int x = 0; x < g_width; x++) {  // Loop through each pixel in the current row
+
+            // Pointer to the current pixel (3 bytes: Blue, Green, Red)
+            unsigned char *pixel = row + x * 3;
+            
+            // Extract original color values
+            unsigned char blue  = pixel[0];
+            unsigned char green = pixel[1];
+            unsigned char red   = pixel[2];
+
+            // Apply sepia formula
+            int newRed   = (int)(0.393 * red + 0.769 * green + 0.189 * blue);
+            int newGreen = (int)(0.349 * red + 0.686 * green + 0.168 * blue);
+            int newBlue  = (int)(0.272 * red + 0.534 * green + 0.131 * blue);
+
+            // Clamp values to [0,255]
+            pixel[2] = (newRed > 255) ? 255 : newRed;
+            pixel[1] = (newGreen > 255) ? 255 : newGreen;
+            pixel[0] = (newBlue > 255) ? 255 : newBlue;
+        }
+    }
+     // Inform the user that the filter was applied successfully
+    printf("[OK] Sepia filter applied.\n");
+   
 }
 
 
