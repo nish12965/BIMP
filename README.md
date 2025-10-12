@@ -32,7 +32,7 @@ This section will be written after completing the program.
 | 7 | **Bittu Kumar** | [LinkedIn](https://www.linkedin.com/in/bittu-kumar-5b9934235/) | [GitHub](https://github.com/Bittu9122-coder) |
 | 8 | **Divyanshi Lilhore** | [LinkedIn](https://www.linkedin.com/in/divyanshi-lilhore-249283381/) | [GitHub](https://github.com/divyanshililhore) |
 | 9 | **Kumar Gaurav** | [LinkedIn](https://www.linkedin.com/in/kumar-gaurav-85305022a/) | [GitHub](https://github.com/Kumar-Gaurav1) |
-| 10 | **Nishant Kuamar** | [LinkedIn](https://www.linkedin.com/in/nishant128/) | [GitHub](https://github.com/nish12965) |
+| 10 | **Nishant Kumar** | [LinkedIn](https://www.linkedin.com/in/nishant128/) | [GitHub](https://github.com/nish12965) |
 | 11 | **Vishlavath Santosh Kumar** | [LinkedIn](#) | [GitHub](#) |
 | 12 | **Vadithya Prashanth** | [LinkedIn](https://www.linkedin.com/in/vadithya-prashanth-1a267736a/) | [GitHub](https://github.com/vadithyaprashanth) |
 
