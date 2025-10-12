@@ -34,7 +34,7 @@ This section will be written after completing the program.
 | 9 | **Kumar Gaurav** | [LinkedIn](https://www.linkedin.com/in/kumar-gaurav-85305022a/) | [GitHub](https://github.com/Kumar-Gaurav1) |
 | 10 | **Nishant Kuamar** | [LinkedIn](https://www.linkedin.com/in/nishant128/) | [GitHub](https://github.com/nish12965) |
 | 11 | **Vishlavath Santosh Kumar** | [LinkedIn](#) | [GitHub](#) |
-| 12 | **Vadithya Prashanth** | [LinkedIn](#) | [GitHub](https://github.com/vadithyaprashanth) |
+| 12 | **Vadithya Prashanth** | [LinkedIn](https://www.linkedin.com/in/vadithya-prashanth-1a267736a/) | [GitHub](https://github.com/vadithyaprashanth) |
 
 ## Licence 
 This project is licenced under the **GNU general Public Licence v3 (GPL-3.0)**
