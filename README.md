@@ -20,7 +20,8 @@ This section will be written after completing the program.
 ### For testing,
 
 ### Development Strucuture
-```bimp/
+```
+bimp/
 ├── main.c              # Entry point of the program
 ├── tools.c             # Core image manipulation functions
 ├── tools.h             # Header file for function declarations
