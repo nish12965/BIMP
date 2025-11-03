@@ -18,11 +18,21 @@ This software is in early development and will be released soon.
 ## Installation/ Usage 
 This section will be written after completing the program.
 ### For testing,
+
+### Development Strucuture
+bimp/
+├── main.c              # Entry point of the program
+├── tools.c             # Core image manipulation functions
+├── tools.h             # Header file for function declarations
+├── assets/             # Sample input images
+└── README.md           # Documentation
+
+
 ### 🧩 Clone the Repository
 ```bash
 git clone https://github.com/nish12965/bimp.git
 cd bimp
-gcc main.c tools.c -o main -lm
+gcc main.c tools.c -o bimp -lm
 ./main
 ```
 
