@@ -5,12 +5,12 @@ This software is in early development and will be released soon.
 ## Current Features
 - ✔️ Color Inversion          - Anjali
 - ✔️ Gray Scaling             - Aradhana
-- ⚠️ Gamma Correction         - Divyanshi 
+- ✔️  Gamma Correction         - Divyanshi 
 - ✔️ Adjusting Brightness     - Alok
 - ❌ Adjusting Contrast       - Bittu
 - ✔️ Sepia                    - Prashant
 - ❌ Color chaneel filter     - Santosh
-- ❌ Saturation               - Vineet
+- ✔️ Saturation               - Vineet
 ## Optional Feature
 - ⛔ Rotate 
 - ⛔ Resize
