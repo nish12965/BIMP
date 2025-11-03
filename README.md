@@ -5,7 +5,7 @@ This software is in early development and will be released soon.
 ## Current Features
 - ✔️ Color Inversion          - Anjali
 - ✔️ Gray Scaling             - Aradhana
-- ✔️  Gamma Correction         - Divyanshi 
+- ✔️ Gamma Correction         - Divyanshi 
 - ✔️ Adjusting Brightness     - Alok
 - ❌ Adjusting Contrast       - Bittu
 - ✔️ Sepia                    - Prashant
@@ -17,7 +17,17 @@ This software is in early development and will be released soon.
 - ⛔ Horizontal/Vertical flip etc
 ## Installation/ Usage 
 This section will be written after completing the program.
-## Contributors
+### For testing,
+### 🧩 Clone the Repository
+```bash
+git clone https://github.com/nish12965/bimp.git
+cd bimp
+gcc main.c tools.c -o main -lm
+./main
+```
+
+
+
 
 ### 👥 Team Members
 
@@ -27,7 +37,7 @@ This section will be written after completing the program.
 | 2 | **Anjali Kumari** | [LinkedIn](https://www.linkedin.com/in/anjalii1803/) | [GitHub](https://github.com/anjalii1803) |
 | 3 | **Arun Singh** | [LinkedIn](https://www.linkedin.com/in/arun-bisht-31120624b/) | [GitHub](https://github.com/bishtarun169) |
 | 4 | **Vineet Sikarwar** | [LinkedIn](https://www.linkedin.com/in/vineet-sikarwar-bba6542b3/) | [GitHub](https://github.com/VINEET-SIKARWAR) |
-| 5 | **Aradhana Patidar** | [LinkedIn](#) | [GitHub](https://github.com/aradhanapatidar) |
+| 5 | **Aradhana Patidar** | [LinkedIn](https://www.linkedin.com/in/aradhana-patidar-118280381/) | [GitHub](https://github.com/aradhanapatidar) |
 | 6 | **Alok Kumar** | [LinkedIn](https://www.linkedin.com/in/alok-kumar-70b638261/) | [GitHub](https://github.com/REALOKkumar) |
 | 7 | **Bittu Kumar** | [LinkedIn](https://www.linkedin.com/in/bittu-kumar-5b9934235/) | [GitHub](https://github.com/Bittu9122-coder) |
 | 8 | **Divyanshi Lilhore** | [LinkedIn](https://www.linkedin.com/in/divyanshi-lilhore-249283381/) | [GitHub](https://github.com/divyanshililhore) |
