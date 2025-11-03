@@ -167,7 +167,74 @@ void color_channel(){
 }
 
 void saturation(){
-   // Block of code to perform saturation effect on image
+    if (g_pixel_data == NULL) {
+printf("Error: No image loaded.\n");
+return;
+}
+
+float sat_factor;
+printf("Enter saturation factor (>0, 1 = original, >1 = increase, <1 = decrease): ");
+if (scanf("%f", &sat_factor) != 1 || sat_factor < 0.0f) {
+printf(" Invalid saturation value.\n");
+return;
+}
+
+int row_padded = (g_width * 3 + 3) & ~3;
+
+for (int y = 0; y < g_height; y++) {
+for (int x = 0; x < g_width; x++) {
+unsigned char *pixel = g_pixel_data + y * row_padded + x * 3;
+
+float r = pixel[2] / 255.0f; // Red
+float g = pixel[1] / 255.0f; // Green
+float b = pixel[0] / 255.0f; // Blue
+
+// Convert RGB to HSV
+float max = fmaxf(fmaxf(r, g), b);
+float min = fminf(fminf(r, g), b);
+float delta = max - min;
+
+float h = 0.0f, s = 0.0f, v = max;
+
+if (delta != 0.0f) {
+s = delta / max;
+
+if (max == r)
+h = 60.0f * fmodf(((g - b) / delta), 6.0f);
+else if (max == g)
+h = 60.0f * (((b - r) / delta) + 2.0f);
+else
+h = 60.0f * (((r - g) / delta) + 4.0f);
+
+if (h < 0) h += 360.0f;
+}
+
+// Modify saturation
+s *= sat_factor;
+if (s > 1.0f) s = 1.0f;
+
+// Convert HSV back to RGB
+float c = v * s;
+float x1 = c * (1 - fabsf(fmodf(h / 60.0f, 2) - 1));
+float m = v - c;
+
+float r1, g1, b1;
+
+if (h < 60) { r1 = c; g1 = x1; b1 = 0; }
+else if (h < 120) { r1 = x1; g1 = c; b1 = 0; }
+else if (h < 180) { r1 = 0; g1 = c; b1 = x1; }
+else if (h < 240) { r1 = 0; g1 = x1; b1 = c; }
+else if (h < 300) { r1 = x1; g1 = 0; b1 = c; }
+else { r1 = c; g1 = 0; b1 = x1; }
+
+pixel[2] = (unsigned char)((r1 + m) * 255.0f);
+pixel[1] = (unsigned char)((g1 + m) * 255.0f);
+pixel[0] = (unsigned char)((b1 + m) * 255.0f);
+}
+}
+
+printf("Saturation adjusted by factor %.2f\n", sat_factor);
+
 }
 
 
