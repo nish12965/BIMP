@@ -34,7 +34,7 @@ void tools(){
         printf("4. Sepia\n");
         printf("5. Adjust brightness\n");
         printf("6. Adjust contrast\n");
-        printf("7. Color chaneel\n");
+        printf("7. Color channel\n");
         printf("8. Saturation\n");     
         printf("9. Save File\n");
         printf("0. Back to main menu \n");
@@ -95,7 +95,7 @@ int main(){
       
         
         printf(" <= Main Menu => \n");
-        printf("1.Opne_File \n2.Tools \n3.About \n4.Exit \n");
+        printf("1.Open_File \n2.Tools \n3.About \n4.Exit \n");
         printf("Enter Your choice : ");
         scanf("%d",&choice);
 
