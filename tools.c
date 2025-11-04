@@ -113,10 +113,48 @@ void gamma_correction(){
     printf("✔️ Gamma correction applied with gamma = %.2f\n", gamma);
 }
 
+void contrast() {
+    if (g_pixel_data == NULL) {
+        printf("❌ Error: No image loaded.\n");
+        return;
+    }
 
-void contrast(){
-    // Block of code to perform contrast effect on image
+    float contrast_value;
+    printf("Enter contrast level (-100 to 100): ");
+    if (scanf("%f", &contrast_value) != 1 || contrast_value < -100.0f || contrast_value > 100.0f) {
+        printf("❌ Invalid contrast value. Please enter between -100 and 100.\n");
+        return;
+    }
+
+    // Calculate contrast factor
+    // Formula: factor = (259 * (contrast + 255)) / (255 * (259 - contrast))
+    float factor = (259.0f * (contrast_value + 255.0f)) / (255.0f * (259.0f - contrast_value));
+
+    // BMP row padding to multiple of 4 bytes
+    int row_padded = (g_width * 3 + 3) & ~3;
+
+    // Loop through all pixels (B, G, R order)
+    for (int y = 0; y < g_height; y++) {
+        for (int x = 0; x < g_width; x++) {
+            unsigned char *pixel = g_pixel_data + y * row_padded + x * 3;
+
+            for (int c = 0; c < 3; c++) {
+                // Apply contrast adjustment
+                float val = (float)pixel[c];
+                val = factor * (val - 128.0f) + 128.0f;
+
+                // Clamp between 0 and 255
+                if (val < 0.0f) val = 0.0f;
+                if (val > 255.0f) val = 255.0f;
+
+                pixel[c] = (unsigned char)val;
+            }
+        }
+    }
+
+    printf("✔️ Contrast adjusted successfully (%.2f)\n", contrast_value);
 }
+
 
 void sepia(){
     // Block of code to perform sepia effect on image
