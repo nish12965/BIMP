@@ -7,9 +7,9 @@ This software is in early development and will be released soon.
 - ✔️ Gray Scaling             - Aradhana
 - ✔️ Gamma Correction         - Divyanshi 
 - ✔️ Adjusting Brightness     - Alok
-- ❌ Adjusting Contrast       - Bittu
+- ✔️ Adjusting Contrast       - Anand
 - ✔️ Sepia                    - Prashant
-- ❌ Color chaneel filter     - Santosh
+- ✔️ Color channel filter     - Kumar Gaurav
 - ✔️ Saturation               - Vineet
 ## Optional Feature
 - ⛔ Rotate 
