@@ -34,7 +34,7 @@ bimp/
 git clone https://github.com/nish12965/bimp.git
 cd bimp
 gcc main.c tools.c -o bimp -lm
-./main
+./bimp
 ```
 
 
