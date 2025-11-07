@@ -224,7 +224,59 @@ void sepia()
 
 void color_channel()
 {
-    // Block of code to perform color_channel effect on image
+    if (g_pixel_data == NULL)
+    {
+        printf(" Error: No image data loaded.\n");
+        return;
+    }
+
+    int choice;
+    printf("Select color channel to keep:\n");
+    printf("1. Red\n2. Green\n3. Blue\n");
+    printf("Enter your choice (1-3): ");
+    if (scanf("%d", &choice) != 1)
+    {
+        printf("Invalid input.\n");
+        return;
+    }
+
+    // Handle BMP row padding (rows are aligned to 4-byte boundaries)
+    int row_padded = (g_width * 3 + 3) & ~3;
+
+    for (int y = 0; y < g_height; y++)
+    {
+        for (int x = 0; x < g_width; x++)
+        {
+            unsigned char *pixel = g_pixel_data + y * row_padded + x * 3;
+            unsigned char *blue = &pixel[0];
+            unsigned char *green = &pixel[1];
+            unsigned char *red = &pixel[2];
+
+            switch (choice)
+            {
+            case 1: // Keep Red only
+                *blue = 0;
+                *green = 0;
+                break;
+            case 2: // Keep Green only
+                *blue = 0;
+                *red = 0;
+                break;
+            case 3: // Keep Blue only
+                *green = 0;
+                *red = 0;
+                break;
+            default:
+                printf("Invalid choice! No change applied.\n");
+                return;
+            }
+        }
+    }
+
+    printf("✔️ Color channel filter applied successfully.\n");
+
+    // Automatically save result as a new file
+    save_file("output.bmp");
 }
 
 void saturation()
