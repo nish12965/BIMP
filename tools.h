@@ -64,9 +64,9 @@ void color_channel();
 void saturation();
 
 // File loading
-void load_file();
+void open_file();
 
 // File Saving
-void save_file(const char *output_path);
+void save_file();
 
 #endif // End of header guard

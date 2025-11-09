@@ -17,11 +17,9 @@ unsigned char *g_pixel_data;
 
 // definiton of functionS :-
 
-void grayscale()
-{
-    if (g_pixel_data == NULL)
-    {
-        printf("❌ Error: No image loaded.\n");
+void grayscale() {
+    if (g_pixel_data == NULL) {
+        printf("\x1b[31mError: No image loaded.\x1b[0m\n");
         return;
     }
 
@@ -45,18 +43,16 @@ void grayscale()
     }
 
     printf("✔️ Grayscale effect applied successfully.\n");
+    save_file();
 }
 
 //Function to invert colours of the loaded image
-void inversion()
-{
-    //Check if image data is loaded or not
-    if (g_pixel_data == NULL)
-    {
-        printf("Error: No image data loaded!\n");
+void inversion() {
+    if (g_pixel_data == NULL) {
+        printf("\x1b[31mError: No image loaded.\x1b[0m\n");
         return;
     }
-
+  
     //Calculate the size of each row(without padding)
     int unpadded_row_size = g_width * 3; //3 bytes per pixel(B,G,R)
 
@@ -83,16 +79,19 @@ void inversion()
         }
     }
 
-    printf("Color inversion applied.\n");
+    printf("✔️ Color inversion applied Successfully.\n");
+    save_file();
 }
 
-void brightness()
-{
+void brightness() {
+    if (g_pixel_data == NULL) {
+        printf("\x1b[31mError: No image loaded.\x1b[0m\n");
+        return;
+    }
     int value;
-    printf("Level of brightness :"); // adjust this value
+    printf("Level of brightness ( -100 to 100 ) :"); // adjust this value
     scanf("%d", &value);
-    for (int i = 0; i < g_image_size; i++)
-    {
+    for (int i = 0; i < g_image_size; i++) {
         int temp = g_pixel_data[i] + value;
         if (temp > 255)
             temp = 255;
@@ -100,22 +99,20 @@ void brightness()
             temp = 0;
         g_pixel_data[i] = (unsigned char)temp;
     }
-    printf("Brightness Adjusted successfully.\n");
+    printf("✔️ Brightness Adjusted successfully.\n");
+    save_file();
 }
 
-void gamma_correction()
-{
-    if (g_pixel_data == NULL)
-    {
-        printf("❌ Error: No image loaded.\n");
+void gamma_correction() {
+    if (g_pixel_data == NULL) {
+        printf("\x1b[31mError: No image loaded.\x1b[0m\n");
         return;
     }
-
     float gamma;
     printf("Enter gamma value (> 0): ");
     if (scanf("%f", &gamma) != 1 || gamma <= 0.0f)
     {
-        printf("❌ Invalid gamma value.\n");
+        printf("Invalid gamma value.\n");
         return;
     }
 
@@ -134,21 +131,18 @@ void gamma_correction()
     }
 
     printf("✔️ Gamma correction applied with gamma = %.2f\n", gamma);
+    save_file();
 }
 
-void contrast()
-{
-    if (g_pixel_data == NULL)
-    {
-        printf("❌ Error: No image loaded.\n");
+void contrast() {
+    if (g_pixel_data == NULL) {
+        printf("Error: No image loaded.\n");
         return;
     }
-
     float contrast_value;
     printf("Enter contrast level (-100 to 100): ");
-    if (scanf("%f", &contrast_value) != 1 || contrast_value < -100.0f || contrast_value > 100.0f)
-    {
-        printf("❌ Invalid contrast value. Please enter between -100 and 100.\n");
+    if (scanf("%f", &contrast_value) != 1 || contrast_value < -100.0f || contrast_value > 100.0f) {
+        printf("Invalid contrast value. Please enter between -100 and 100.\n");
         return;
     }
 
@@ -184,15 +178,12 @@ void contrast()
     }
 
     printf("✔️ Contrast adjusted successfully (%.2f)\n", contrast_value);
+    save_file();
 }
 
-void sepia()
-{
-    // Block of code to perform sepia effect on image
-
-    if (g_pixel_data == NULL)
-    {
-        printf("Error: No image loaded!\n");
+void sepia() {
+    if (g_pixel_data == NULL) {
+        printf("\x1b[31mError: No image loaded.\x1b[0m\n");
         return;
     }
 
@@ -229,14 +220,13 @@ void sepia()
         }
     }
     // Inform the user that the filter was applied successfully
-    printf("[OK] Sepia filter applied.\n");
+    printf("✔️ Sepia filter applied.\n");
+    save_file();
 }
 
-void color_channel()
-{
-    if (g_pixel_data == NULL)
-    {
-        printf(" Error: No image data loaded.\n");
+void color_channel() {
+    if (g_pixel_data == NULL) {
+        printf("\x1b[31mError: No image loaded.\x1b[0m\n");
         return;
     }
 
@@ -284,16 +274,12 @@ void color_channel()
     }
 
     printf("✔️ Color channel filter applied successfully.\n");
-
-    // Automatically save result as a new file
-    save_file("output.bmp");
+    save_file();
 }
 
-void saturation()
-{
-    if (g_pixel_data == NULL)
-    {
-        printf("Error: No image loaded.\n");
+void saturation() {
+    if (g_pixel_data == NULL) {
+        printf("\x1b[31mError: No image loaded.\x1b[0m\n");
         return;
     }
 
@@ -394,13 +380,13 @@ void saturation()
         }
     }
 
-    printf("Saturation adjusted by factor %.2f\n", sat_factor);
+    printf("✔️ Saturation adjusted by factor %.2f\n", sat_factor);
+    save_file();
 }
 
-void load_file()
-{
+void open_file() {
     char path[256];
-    printf("Enter path of bmp file : ");
+    printf("Enter path of bmp file ( 255 char long ): ");
     if (scanf("%255s", path) != 1)
     {
         return;
@@ -409,21 +395,21 @@ void load_file()
     FILE *fp = fopen(path, "rb");
     if (fp == NULL)
     {
-        printf("Error !! File not loaded");
+        printf("\x1b[31mError !! File not loaded\x1b[0m\n");
         return;
     }
 
     if (fread(&g_f_header, sizeof(BMPFILEHEADER), 1, fp) != 1 ||
         fread(&g_i_header, sizeof(BMPINFOHEADER), 1, fp) != 1)
     {
-        printf("Error in reading file header !!");
+        printf("\x1b[31mError in reading file header !!\x1b[0m\n");
         fclose(fp);
         return;
     }
 
     if (g_f_header.bfType != 0X4d42 || g_i_header.biBitCount != 24 || g_i_header.biCompression != 0)
     {
-        printf("Only 24 bit uncmpressed BMP file is supported");
+        printf("\x1b[31mOnly 24 bit uncmpressed BMP file is supported\x1b[0m\n");
         fclose(fp);
         return;
     }
@@ -444,12 +430,12 @@ void load_file()
     g_pixel_data = (unsigned char *)malloc(g_image_size);
     if (g_pixel_data == NULL)
     {
-        printf("Memory Allocation Failed !!");
+        printf("\x1b[31mMemory Allocation Failed !!\x1b[0m\n");
         fclose(fp);
         return;
     }
 
-    //
+    
     fseek(fp, g_f_header.bfOffBits, SEEK_SET);
     if (fread(g_pixel_data, 1, g_image_size, fp) != g_image_size)
     {
@@ -461,23 +447,24 @@ void load_file()
     }
 
     fclose(fp);
-    printf("File has been loaded ✔️\n");
-    printf("Pixels  : %d * %d\n", g_width, g_height);
-    printf("👉 Visit tools section for operatin ");
+    printf("\n\x1b[34mFile has been loaded ✔️\x1b[0m\n");
+    printf("\n\x1b[36mPixels  : %d * %d\x1b[0m\n", g_width, g_height);
+    printf("\n\x1b[32m👉 Visit tools section to perform operation.\x1b[0m \n");
 }
 
-void save_file(const char *output_path)
-{
+void save_file() {
     if (g_pixel_data == NULL)
     {
-        printf("Error: No image data to save.\n");
+        printf("\x1b[31mError: No image data to save.\x1b[0m\n");
         return;
     }
-
+    char output_path[256];
+    printf("Enter output file path (max 255 char long with .bmp): ");
+    scanf("%s",&output_path);
     FILE *fp = fopen(output_path, "wb");
     if (fp == NULL)
     {
-        perror("Error creating output file");
+        perror("\x1b[31mError opening  output file.\x1b[0m\n");
         return;
     }
     // writing file header

@@ -2,9 +2,9 @@
 Program Name : BIMP (Bitmap Image Manipulaton Program)
 Project type : Group Project
 Author(s) : Anand, Anjali, Arun, Aradhna, Alok,Bittu,Divyanshi,Gaurav,
-            Nishant,Santosh,Prashant,Vineet
+            Nishant,Prashant,Vineet
 Date : 28/09/2025
-Last Modification Date : 29/09/2025
+Last Modification Date : 09/11/2025
 Version : 1.0.0
 
 */
@@ -17,18 +17,12 @@ Version : 1.0.0
 
 #define MAX_PATH_LENGTH 256
 
-void file(){
-    printf("Enter path of file : ");
-    // File will be taken here as input globally so accessed from everywhere
-
-}
 void tools(){
 
-    // Validate image loaded or not also first
     int tool_choice;
     do {
-        printf("\n==> Entered Tool menu !!\n\n");
-        printf("1. Grayscale \n");
+        printf("\n\x1b[32m==> Entered Tool menu !!\x1b[0m\n\n");
+        printf("\x1b[32m1. Grayscale \n");
         printf("2. Invert color\n");
         printf("3. Gamma_color_change\n");
         printf("4. Sepia\n");
@@ -36,8 +30,7 @@ void tools(){
         printf("6. Adjust contrast\n");
         printf("7. Color channel\n");
         printf("8. Saturation\n");     
-        printf("9. Save File\n");
-        printf("0. Back to main menu \n");
+        printf("0. Back to main menu \x1b[0m\n");
 
         printf("Enter Your choice : ");
         scanf("%d",&tool_choice);
@@ -59,14 +52,12 @@ void tools(){
                     break;
             case 8: saturation();
                     break;
-            case 9: save_file("output.bmp");
-                    break;
             case 0: 
-                printf("\nReturning to Main menu ..... \n");
+                printf("\nReturning to Main menu ... \n");
                 return;
         
             default:
-                printf("Error !! Enter Valid Choice !!\n");
+                printf("\x1b[1;31mError !! Enter Valid Choice !!\x1b[0m\n");
                 break;
         }
     } while ( tool_choice != 0);
@@ -77,7 +68,7 @@ void tools(){
 void about(){
     FILE *file = fopen("about.md","r");
             if (file == NULL){
-                printf("Error: File not opening\n");
+                printf("\x1b[31Error: File not opening\n\x1b[0m");
             }
             else{
                 char line[1024];
@@ -90,26 +81,26 @@ void about(){
 
 int main(){
     int choice;
-    printf("\n === Bitmap Image Manipulation Progaram (BIMP) === \n\n");
+    printf("\n\x1b[1;33m=== 🖼️  Bitmap Image Manipulation Progaram (BIMP) ===\x1b[0m\n\n");
     do {
       
         
-        printf(" <= Main Menu => \n");
+        printf(" \x1b[1;35m<= Main Menu => \n");
         printf("1.Open_File \n2.Tools \n3.About \n4.Exit \n");
-        printf("Enter Your choice : ");
+        printf("Enter Your choice (1-4) : \x1b[0m");
         scanf("%d",&choice);
 
         switch(choice){
-            case 1: load_file(); 
+            case 1: open_file(); 
             break;
             case 2: tools();
             break;
             case 3: printf("\n");
             about();
             break;
-            case 4: printf("Program Terminated Successfully. Thankyou\n");
+            case 4: printf("\x1b[32mProgram Terminated Successfully. Thankyou\x1b[0m\n");
             break;
-            default : printf("Error !! Please enter valid choice !!\n");
+            default : printf("\x1b[31Error !! Please enter valid choice !!\x1b[0\n");
             break;
         } 
     }

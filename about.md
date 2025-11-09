@@ -10,7 +10,7 @@ Language :	C
 
 01. Anand Kumar Maurya (2025CA014)==> Captain 👑 
 02. Arun Singh (2025CA021)        ==> Vice Captain👑
-03. Vineet Sikarwar (2025CA111)   ==> Lead Developer
+03. Vineet Sikarwar (2025CA111)   ==> Developer
 04. Nishant Kumar (2025CA063)     ==> Developer
 05. Kumar Gaurav (2025CA053)      ==> Developer
 06. Alok kumar (2025CA0)          ==> Developer
