@@ -47,29 +47,39 @@ void grayscale()
     printf("✔️ Grayscale effect applied successfully.\n");
 }
 
+//Function to invert colours of the loaded image
 void inversion()
 {
+    //Check if image data is loaded or not
     if (g_pixel_data == NULL)
     {
         printf("Error: No image data loaded!\n");
         return;
     }
 
-    int unpadded_row_size = g_width * 3;
+    //Calculate the size of each row(without padding)
+    int unpadded_row_size = g_width * 3; //3 bytes per pixel(B,G,R)
+
+    //Calculate the size of each row including padding(BMP rows are padded to multiples of 4 bytes)
     int padded_row_size = (unpadded_row_size + 3) & ~3;
 
+    //Loop through each row of the image
     for (int y = 0; y < g_height; y++)
     {
+         // Pointer to the start of the current row
         unsigned char *row = g_pixel_data + (y * padded_row_size);
 
+        // Loop through each pixel in the row
         for (int x = 0; x < g_width; x++)
         {
+            // Pointer to the current pixel (3 bytes: Blue, Green, Red)
             unsigned char *pixel = row + (x * 3);
 
-            // BMP stores pixels as BGR
-            pixel[0] = 255 - pixel[0]; // Blue
-            pixel[1] = 255 - pixel[1]; // Green
-            pixel[2] = 255 - pixel[2]; // Red
+             // Invert each color channel
+            // BMP stores pixels in BGR format
+            pixel[0] = 255 - pixel[0]; //Invert Blue
+            pixel[1] = 255 - pixel[1]; //Invert Green
+            pixel[2] = 255 - pixel[2]; //Invert Red
         }
     }
 
