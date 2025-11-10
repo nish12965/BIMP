@@ -15,7 +15,7 @@ All core features have been implemented by our team members and we are working h
 - ⛔ Rotate 
 - ⛔ Resize
 - ⛔ Horizontal/Vertical flip etc
-
+## Project Report : https://drive.google.com/file/d/1y_DWS63yBcA5Ruik6g_AGOSvATWsr_uk/view?usp=drive_link
 ## Screenshots
 
 #### Grayscaled
