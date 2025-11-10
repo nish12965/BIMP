@@ -5,6 +5,7 @@
 #include <string.h>
 #include <stdint.h>
 #include <math.h>
+#include <time.h>
 
 // Global Definitons
 
@@ -459,8 +460,33 @@ void save_file() {
         return;
     }
     char output_path[256];
-    printf("Enter output file path (max 255 char long with .bmp): ");
-    scanf("%s",&output_path);
+    //Clearing  leftover newline from previous scanf
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF) {}
+    printf("Enter output file path (Max 255 char long with .bmp or Just Press Enter for Autosave): ");
+      fgets(output_path, sizeof(output_path), stdin);
+
+    // remove newline if present
+    output_path[strcspn(output_path, "\n")] = '\0';
+
+    // check if user left empty OR forgot .bmp
+    if (strlen(output_path) == 0 || strstr(output_path, ".bmp") == NULL) {
+
+        time_t now = time(NULL);
+        struct tm *t = localtime(&now);
+
+        snprintf(output_path, sizeof(output_path),
+                 "output_%04d%02d%02d_%02d%02d%02d.bmp",
+                 t->tm_year + 1900,
+                 t->tm_mon + 1,
+                 t->tm_mday,
+                 t->tm_hour,
+                 t->tm_min,
+                 t->tm_sec);
+
+        printf("Auto filename used: %s\n", output_path);
+    }
+
     FILE *fp = fopen(output_path, "wb");
     if (fp == NULL)
     {

@@ -14,6 +14,7 @@ Version : 1.0.0
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
+#include <time.h>
 
 #define MAX_PATH_LENGTH 256
 
