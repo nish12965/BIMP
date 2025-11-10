@@ -15,6 +15,24 @@ This software is in early development and will be released soon.
 - ⛔ Rotate 
 - ⛔ Resize
 - ⛔ Horizontal/Vertical flip etc
+
+## Screenshots
+
+## Screenshots
+
+
+
+#### Grayscaled
+![Screenshot](./assets/screenshots/grayscaled.bmp)
+
+#### Inverted
+![ScreenShot](./assets/screenshots/inverted.bmp)
+####
+![Screenshot](./assets/screenshots/gamma.bmp)
+
+#### Green Channel
+![Screenshot](./assets/screenshots/green.bmp)
+
 ## Installation/ Usage 
 This section will be written after completing the program.
 ### For testing,
