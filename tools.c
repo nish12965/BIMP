@@ -221,7 +221,7 @@ void sepia() {
         }
     }
     // Inform the user that the filter was applied successfully
-    printf("✔️ Sepia filter applied.\n");
+    printf("Sepia filter applied.\n");
     save_file();
 }
 
