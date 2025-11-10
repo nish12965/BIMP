@@ -88,23 +88,40 @@ void inversion() {
 }
 
 void brightness() {
-    if (g_pixel_data == NULL) {
-        printf("\x1b[31mError: No image loaded.\x1b[0m\n");
-        return;
-    }
-    int value;
-    printf("Level of brightness ( -100 to 100 ) :"); // adjust this value
-    scanf("%d", &value);
-    for (int i = 0; i < g_image_size; i++) {
-        int temp = g_pixel_data[i] + value;
-        if (temp > 255)
-            temp = 255;
-        if (temp < 0)
-            temp = 0;
-        g_pixel_data[i] = (unsigned char)temp;
-    }
-    printf("✔️ Brightness Adjusted successfully.\n");
-    save_file();
+    // Check if any image data is loaded
+if (g_pixel_data == NULL) {
+    // Print an error message in red color using ANSI escape code
+    printf("\x1b[31mError: No image loaded.\x1b[0m\n");
+    return; // Exit the function if no image is loaded
+}
+
+int value; // Variable to store brightness adjustment value
+
+// Ask the user to input brightness level (from -100 to +100)
+printf("Level of brightness ( -100 to 100 ): ");
+scanf("%d", &value);
+
+// Loop through all pixels in the image
+for (int i = 0; i < g_image_size; i++) {
+    // Add the brightness value to each pixel
+    int temp = g_pixel_data[i] + value;
+
+    // Clamp values to stay within valid range (0–255)
+    if (temp > 255)
+        temp = 255;
+    if (temp < 0)
+        temp = 0;
+
+    // Update the pixel with the new adjusted brightness
+    g_pixel_data[i] = (unsigned char)temp;
+}
+
+// Print success message
+printf("✔️ Brightness Adjusted successfully.\n");
+
+// Save the modified image to file
+save_file();
+
 }
 // Function: gamma_correction()
 // Purpose: Adjusts the brightness and contrast of the loaded image using a gamma value.
