@@ -19,6 +19,7 @@ unsigned char *g_pixel_data;
 // definiton of functionS :-
 
 void grayscale() {
+     // Check if image data exists before proceeding
     if (g_pixel_data == NULL) {
         printf("\x1b[31mError: No image loaded.\x1b[0m\n");
         return;
@@ -26,14 +27,16 @@ void grayscale() {
 
     // BMP rows are padded to multiples of 4 bytes
     int row_padded = (g_width * 3 + 3) & ~3;
-
+    
+    // Loop through every pixel in the image (by row and column)
     for (int y = 0; y < g_height; y++)
     {
         for (int x = 0; x < g_width; x++)
         {
             // Access the pixel (3 bytes: B, G, R)
             unsigned char *pixel = g_pixel_data + y * row_padded + x * 3;
-
+            
+             // Convert to grayscale using a weighted average
             unsigned char gray = (pixel[0] + pixel[1] + pixel[2]) / 3;
 
             // Apply grayscale to all channels
