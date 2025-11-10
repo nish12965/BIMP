@@ -67,7 +67,7 @@ void tools(){
 }
 
 void about(){
-    FILE *file = fopen("about.md","r");
+    FILE *file = fopen("./assets/about.md","r");
             if (file == NULL){
                 printf("\x1b[31Error: File not opening\n\x1b[0m");
             }
