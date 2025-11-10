@@ -106,33 +106,49 @@ void brightness() {
     printf("✔️ Brightness Adjusted successfully.\n");
     save_file();
 }
+// Function: gamma_correction()
+// Purpose: Adjusts the brightness and contrast of the loaded image using a gamma value.
 
 void gamma_correction() {
+         // Check if an image is loaded into memory
+
     if (g_pixel_data == NULL) {
         printf("\x1b[31mError: No image loaded.\x1b[0m\n");
         return;
+                  // Exit if no image data is found
     }
     float gamma;
+                  // Ask user for gamma value
+
     printf("Enter gamma value (> 0): ");
     if (scanf("%f", &gamma) != 1 || gamma <= 0.0f)
     {
+        // Validate input (gamma must be positive)
+
         printf("Invalid gamma value.\n");
         return;
     }
+     // Calculate the number of bytes in each padded row
+    // Each pixel has 3 bytes (RGB), and rows are padded to multiples of 4 bytes
 
     int row_padded = (g_width * 3 + 3) & ~3;
+         // Loop through each pixel in the image
 
     for (int y = 0; y < g_height; y++)
     {
         for (int x = 0; x < g_width; x++)
         {
-            unsigned char *pixel = g_pixel_data + y * row_padded + x * 3;
+           // Pointer to the current pixel (3 bytes: B, G, R)
 
+            unsigned char *pixel = g_pixel_data + y * row_padded + x * 3;
+             
+ // Apply gamma correction formula:
             pixel[0] = (unsigned char)(powf(pixel[0] / 255.0f, gamma) * 255.0f); // Blue
             pixel[1] = (unsigned char)(powf(pixel[1] / 255.0f, gamma) * 255.0f); // Green
             pixel[2] = (unsigned char)(powf(pixel[2] / 255.0f, gamma) * 255.0f); // Red
         }
     }
+    // Inform user that the gamma correction is done
 
     printf("✔️ Gamma correction applied with gamma = %.2f\n", gamma);
     save_file();
