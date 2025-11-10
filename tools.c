@@ -279,27 +279,34 @@ void color_channel() {
 }
 
 void saturation() {
+     // Check if any image data is loaded before processing
     if (g_pixel_data == NULL) {
         printf("\x1b[31mError: No image loaded.\x1b[0m\n");
         return;
     }
 
-    float sat_factor;
+    float sat_factor;  // user-defined factor to increase or decrease saturation
+     // Ask user to input a saturation factor
     printf("Enter saturation factor (>0, 1 = original, >1 = increase, <1 = decrease): ");
     if (scanf("%f", &sat_factor) != 1 || sat_factor < 0.0f)
     {
         printf(" Invalid saturation value.\n");
         return;
     }
-
+    
+       // Each BMP row is padded to a multiple of 4 bytes
     int row_padded = (g_width * 3 + 3) & ~3;
-
+ 
+        // Loop through all pixels (row by row)
     for (int y = 0; y < g_height; y++)
     {
         for (int x = 0; x < g_width; x++)
         {
+               // Pointer to the start of this pixel (3 bytes: B, G, R)
             unsigned char *pixel = g_pixel_data + y * row_padded + x * 3;
 
+
+            // Extract RGB values and normalize them to [0, 1] range
             float r = pixel[2] / 255.0f; // Red
             float g = pixel[1] / 255.0f; // Green
             float b = pixel[0] / 255.0f; // Blue
@@ -311,10 +318,11 @@ void saturation() {
 
             float h = 0.0f, s = 0.0f, v = max;
 
-            if (delta != 0.0f)
+            if (delta != 0.0f)// if the color is not grayscale
             {
-                s = delta / max;
+                s = delta / max; // compute saturation (relative color strength)
 
+                // compute hue based on which color is the maximum
                 if (max == r)
                     h = 60.0f * fmodf(((g - b) / delta), 6.0f);
                 else if (max == g)
