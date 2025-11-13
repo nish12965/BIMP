@@ -102,7 +102,8 @@ printf("Level of brightness ( -100 to 100 ): ");
 scanf("%d", &value);
 
 // Loop through all pixels in the image
-for (int i = 0; i < g_image_size; i++) {
+for (size_t i = 0; i < g_image_size; i++) {       
+
     // Add the brightness value to each pixel
     int temp = g_pixel_data[i] + value;
 
