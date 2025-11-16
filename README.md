@@ -61,7 +61,7 @@ sudo apt install build-essential -y
 ```bash
 git clone https://github.com/nish12965/bimp.git
 cd bimp
-make```
+make run
 ./bimp
 ```
 
