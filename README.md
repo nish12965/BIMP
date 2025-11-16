@@ -52,9 +52,11 @@ bimp/
 - Alpine	```sudo apk add build-base```
 - Gentoo	```sudo emerge --ask sys-devel/gcc sys-devel/make```
 #### Installing GCC + Make In Windows With WSL
- ```wsl --install```
-```sudo apt update && sudo apt upgrade -y```
-```sudo apt install build-essential -y```
+ ```
+wsl --install
+sudo apt update && sudo apt upgrade -y
+sudo apt install build-essential -y
+```
 
 ```bash
 git clone https://github.com/nish12965/bimp.git
