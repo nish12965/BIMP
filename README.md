@@ -42,7 +42,7 @@ bimp/
 └── README.md           # Documentation for BIMP program
 ```
 
-### 🧩 Clone the Repository
+
 #### Installing GCC + Make In Unix/Linux
 - Ubuntu / Debian / Kali ```sudo apt install build-essential```
 - Fedora / Rocky / AlmaLinux ```sudo dnf groupinstall "Development Tools"```
@@ -57,6 +57,7 @@ wsl --install
 sudo apt update && sudo apt upgrade -y
 sudo apt install build-essential -y
 ```
+#### 🧩 Clone the Repository
 ```bash
 git clone https://github.com/nish12965/bimp.git
 cd bimp
