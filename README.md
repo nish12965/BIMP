@@ -43,14 +43,14 @@ bimp/
 ```
 
 ### 🧩 Clone the Repository
-#####Installing GCC + Make 
-Ubuntu / Debian / Kali ```sudo apt install build-essential```
-Fedora / Rocky / AlmaLinux ```sudo dnf groupinstall "Development Tools"```
-CentOS / RHEL ```sudo yum groupinstall "Development Tools"```
-Arch / Manjaro ```sudo pacman -S base-devel```
-openSUSE	```sudo zypper install -t pattern devel_basis```
-Alpine	```sudo apk add build-base```
-Gentoo	```sudo emerge --ask sys-devel/gcc sys-devel/make```
+#### Installing GCC + Make 
+- Ubuntu / Debian / Kali ```sudo apt install build-essential```
+- Fedora / Rocky / AlmaLinux ```sudo dnf groupinstall "Development Tools"```
+- CentOS / RHEL ```sudo yum groupinstall "Development Tools"```
+- Arch / Manjaro ```sudo pacman -S base-devel```
+- openSUSE	```sudo zypper install -t pattern devel_basis```
+- Alpine	```sudo apk add build-base```
+- Gentoo	```sudo emerge --ask sys-devel/gcc sys-devel/make```
 ```bash
 git clone https://github.com/nish12965/bimp.git
 cd bimp
