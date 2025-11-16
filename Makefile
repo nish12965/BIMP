@@ -23,7 +23,7 @@ all: $(TARGET)
 # Build target executable
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
-	@echo "✅ Build complete! Run with ./$(TARGET)"
+	@echo " Build complete! Run with ./$(TARGET)"
 
 # Compile .c to .o
 %.o: %.c tools.h
@@ -32,7 +32,7 @@ $(TARGET): $(OBJS)
 # Clean build files
 clean:
 	rm -f $(OBJS) $(TARGET)
-	@echo "🧹 Cleaned up object files and executable."
+	@echo " Cleaned up object files and executable."
 
 # Run the program
 run: all
@@ -41,6 +41,6 @@ run: all
 # Debug build
 debug: CFLAGS += -g
 debug: clean all
-	@echo "🐞 Debug build complete. Use gdb ./$(TARGET)"
+	@echo "Debug build complete. Use gdb ./$(TARGET)"
 
 .PHONY: all clean run debug
