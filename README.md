@@ -57,13 +57,15 @@ wsl --install
 sudo apt update && sudo apt upgrade -y
 sudo apt install build-essential -y
 ```
-
 ```bash
 git clone https://github.com/nish12965/bimp.git
 cd bimp
 make run
 ./bimp
 ```
+## Licence 
+This project is licenced under the **GNU general Public Licence v3 (GPL-3.0)**
+See more details here, [GPL v3 licence](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
 
 
@@ -84,9 +86,7 @@ make run
 | 10 | **Nishant Kumar** | [LinkedIn](https://www.linkedin.com/in/nishant128/) | [GitHub](https://github.com/nish12965) |
 | 11 | **Vadithya Prashanth** | [LinkedIn](https://www.linkedin.com/in/vadithya-prashanth-1a267736a/) | [GitHub](https://github.com/vadithyaprashanth) |
 
-## Licence 
-This project is licenced under the **GNU general Public Licence v3 (GPL-3.0)**
-See more details here, [GPL v3 licence](https://www.gnu.org/licenses/gpl-3.0.en.html).
+
 
 ## Donation
 This project is maintained by college students. If you find BIMP useful and would like to ensure its continued development and maintenance, please consider sponsoring the project. Thank you for your support.
