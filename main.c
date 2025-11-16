@@ -87,7 +87,7 @@ int main(){
       
         
         printf(" \x1b[1;35m<= Main Menu => \n");
-        printf("1.Open_File \n2.Tools \n3.About \n4.Exit \n");
+        printf("1.Open_File \n2.Tools \n3.About \n4.Image Stats \n5.Exit \n");
         printf("Enter Your choice (1-4) : \x1b[0m");
         scanf("%d",&choice);
 
@@ -98,14 +98,15 @@ int main(){
             break;
             case 3: printf("\n");
             about();
+            case 4: image_stats();
             break;
-            case 4: printf("\x1b[32mProgram Terminated Successfully. Thankyou\x1b[0m\n");
+            case 5: printf("\x1b[32mProgram Terminated Successfully. Thankyou\x1b[0m\n");
             break;
             default : printf("\x1b[31Error !! Please enter valid choice !!\x1b[0\n");
             break;
         } 
     }
-    while ( choice != 4 );
+    while ( choice != 5 );
      
 
     return 0;

@@ -551,3 +551,75 @@ void save_file() {
     fclose(fp);
     printf("Image saved : %s\n", output_path);
 }
+
+void image_stats() {
+    if (g_pixel_data == NULL)
+    {
+        printf("\nNo image loaded!\n");
+        return;
+    }
+
+    int red = 0, green = 0, blue = 0;
+    long total_brightness = 0;
+
+    int total_pixels = g_width * g_height;
+
+    int row_padded = (g_width * 3 + 3) & ~3;
+
+    for (int y = 0; y < g_height; y++)
+    {
+        unsigned char *row = g_pixel_data + y * row_padded;
+
+        for (int x = 0; x < g_width; x++)
+        {
+            unsigned char B = row[x * 3 + 0];
+            unsigned char G = row[x * 3 + 1];
+            unsigned char R = row[x * 3 + 2];
+
+            if (R > G && R > B)
+                red++;
+            else if (G > R && G > B)
+                green++;
+            else
+                blue++;
+
+            total_brightness += (R + G + B) / 3;
+        }
+    }
+
+    int avg_brightness = total_brightness / total_pixels;
+
+    printf("\x1b[33m\n=== IMAGE STATISTICS ===\n\x1b[0m");
+    printf("Width  : %d\n", g_width);
+    printf("Height : %d\n", g_height);
+    printf("\x1b[35mTotal Pixels: %d\n\x1b[0m", total_pixels);
+
+    printf("\x1b[33m\n--- Color Dominance ---\n\x1b[0m");
+    printf("\x1b[31mRed\x1b[0m dominant pixels : %d\n", red);
+    printf("\x1b[32mGreen\x1b[0m dominant pixels : %d\n", green);
+    printf("\x1b[34mBlue\x1b[0m  dominant pixels : %d\n", blue);
+
+    printf("\nOverall Dominant Color: ");
+    if (red > green && red > blue)
+        printf("RED\n");
+    else if (green > red && green > blue)
+        printf("GREEN\n");
+    else
+        printf("BLUE\n");
+
+    printf("\nAverage Brightness: %d (0 = dark, 255 = bright)\n", avg_brightness);
+
+    printf("\n\x1b[36m--- Image Type  ---\n");
+    if (green > red && green > blue)
+        printf("Likely: LANDSCAPE (lots of greens)\n");
+    else if (blue > red && blue > green)
+        printf("Likely: SKY / WATER / NIGHT IMAGE\n");
+    else if (avg_brightness > 160)
+        printf("Likely: BRIGHT OBJECT / PORTRAIT\n");
+    else if (avg_brightness < 80)
+        printf("Likely: DARK IMAGE\n");
+    else
+        printf("Likely: OBJECT or MIXED CONTENT\n\x1b[0m");
+    printf("\n");
+
+}

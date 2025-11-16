@@ -69,4 +69,7 @@ void open_file();
 // File Saving
 void save_file();
 
+//Image stats count
+void image_stats();
+
 #endif // End of header guard
